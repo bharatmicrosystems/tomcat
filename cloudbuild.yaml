@@ -1,8 +1,9 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/playground-s-11-337bdb/tomcat', '.' ]
-  images:
-  - 'gcr.io/playground-s-11-337bdb/tomcat'
+ - name: 'gcr.io/cloud-builders/docker'
+   args: [ 'build', '-t', 'gcr.io/playground-s-11-337bdb/tomcat', '.' ]
 # Deploy an image from Container Registry to Cloud Run
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'tomcat', '--image', 'gcr.io/playground-s-11-337bdb/tomcat', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+ - name: 'gcr.io/cloud-builders/gcloud'
+   args: ['beta', 'run', 'deploy', 'tomcat', '--image', 'gcr.io/playground-s-11-337bdb/tomcat', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+images:
+ - 'gcr.io/playground-s-11-337bdb/tomcat'
+
