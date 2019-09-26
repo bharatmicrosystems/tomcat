@@ -27,7 +27,7 @@ RUN cd /tmp/java-mvn-hello-world-web-app && mvn clean install
 RUN ls /tmp/java-mvn-hello-world-web-app/target
 RUN cp /tmp/java-mvn-hello-world-web-app/target/mvn-hello-world.war /opt/tomcat/webapps/ROOT.war
 
-VOLUME /opt/tomcat/webapps
+#VOLUME /opt/tomcat/webapps
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 #
