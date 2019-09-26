@@ -23,15 +23,12 @@ RUN chmod g+rwx /opt/tomcat/bin
 RUN chmod g+r /opt/tomcat/bin/*
 
 RUN rm -rf /opt/tomcat/webapps/*
-RUN ls -ltr /opt/tomcat/webapps/
 RUN cd /tmp && git clone https://github.com/DEV3L/java-mvn-hello-world-web-app.git
 RUN cd /tmp/java-mvn-hello-world-web-app && mvn clean install
-RUN ls -ltr /tmp/java-mvn-hello-world-web-app/target
 RUN cp /tmp/java-mvn-hello-world-web-app/target/mvn-hello-world.war /opt/tomcat/webapps/ROOT.war
 RUN chmod 777 /opt/tomcat/webapps/ROOT.war
-RUN ls -ltr /opt/tomcat/webapps/
 
-#VOLUME /opt/tomcat/webapps
+VOLUME /opt/tomcat/webapps
 EXPOSE 8080
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 #
