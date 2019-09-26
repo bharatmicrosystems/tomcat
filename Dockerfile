@@ -3,7 +3,7 @@
 FROM centos:7
 MAINTAINER Gaurav Agarwal, bharatmicrosystems@gmail.com
 
-RUN yum install java-1.8.0-openjdk-devel
+RUN yum install -y java-1.8.0-openjdk-devel
 
 # Create users and groups
 RUN groupadd tomcat
