@@ -5,16 +5,16 @@ steps:
    args:
     - '-c'
     - |
-      docker pull gcr.io/playground-s-11-337bdb/tomcat:latest || exit 0
+      docker pull gcr.io/$PROJECT_ID/tomcat:latest || exit 0
 # Build a docker image
  - name: 'gcr.io/cloud-builders/docker'
-   args: [ 'build', '-t', 'gcr.io/playground-s-11-337bdb/tomcat', '--cache-from', 'gcr.io/playground-s-11-337bdb/tomcat', '.' ]
+   args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/tomcat', '--cache-from', 'gcr.io/$PROJECT_ID/tomcat', '.' ]
 # Push the docker image to container registry
  - name: 'gcr.io/cloud-builders/docker'
-   args: ["push", "gcr.io/playground-s-11-337bdb/tomcat"]
+   args: ["push", "gcr.io/$PROJECT_ID/tomcat"]
 # Deploy an image from Container Registry to Cloud Run
  - name: 'gcr.io/cloud-builders/gcloud'
-   args: ['beta', 'run', 'deploy', 'tomcat', '--image', 'gcr.io/playground-s-11-337bdb/tomcat:latest', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
+   args: ['beta', 'run', 'deploy', 'tomcat', '--image', 'gcr.io/$PROJECT_ID/tomcat:latest', '--region', 'europe-west1', '--platform', 'managed', '--allow-unauthenticated']
 images:
- - 'gcr.io/playground-s-11-337bdb/tomcat'
+ - 'gcr.io/$PROJECT_ID/tomcat'
 
