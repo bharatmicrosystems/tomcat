@@ -27,7 +27,7 @@ RUN cd /tmp && git clone https://github.com/DEV3L/java-mvn-hello-world-web-app.g
 RUN cd /tmp/java-mvn-hello-world-web-app && mvn clean install
 RUN ls -ltr /tmp/java-mvn-hello-world-web-app/target
 RUN cp /tmp/java-mvn-hello-world-web-app/target/mvn-hello-world.war /opt/tomcat/webapps/ROOT.war
-RUN chmod g+rwx /opt/tomcat/webapps/ROOT.war
+RUN chmod 777 /opt/tomcat/webapps/ROOT.war
 RUN ls -ltr /opt/tomcat/webapps/
 
 #VOLUME /opt/tomcat/webapps
