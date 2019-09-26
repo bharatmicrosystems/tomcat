@@ -22,10 +22,13 @@ RUN chgrp -R tomcat /opt/tomcat/lib
 RUN chmod g+rwx /opt/tomcat/bin
 RUN chmod g+r /opt/tomcat/bin/*
 
+RUN ls -ltr /opt/tomcat/webapps/
 RUN cd /tmp && git clone https://github.com/DEV3L/java-mvn-hello-world-web-app.git
 RUN cd /tmp/java-mvn-hello-world-web-app && mvn clean install
-RUN ls /tmp/java-mvn-hello-world-web-app/target
+RUN ls -ltr /tmp/java-mvn-hello-world-web-app/target
 RUN cp /tmp/java-mvn-hello-world-web-app/target/mvn-hello-world.war /opt/tomcat/webapps/ROOT.war
+RUN chmod g+rwx /opt/tomcat/webapps/ROOT.war
+RUN ls -ltr /opt/tomcat/webapps/
 
 #VOLUME /opt/tomcat/webapps
 EXPOSE 8080

@@ -1,7 +1,7 @@
 steps:
 # Build a docker image
  - name: 'gcr.io/cloud-builders/docker'
-   args: [ 'build', '-t', 'gcr.io/playground-s-11-337bdb/tomcat', '.' ]
+   args: [ 'build', '-t', 'gcr.io/playground-s-11-337bdb/tomcat', '--cache-from', 'gcr.io/playground-s-11-337bdb/tomcat', '.' ]
 # Push the docker image to container registry
  - name: 'gcr.io/cloud-builders/docker'
    args: ["push", "gcr.io/playground-s-11-337bdb/tomcat"]
