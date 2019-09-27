@@ -17,3 +17,7 @@ Contains configuration to use the Google Cloud Build service which
 1. Builds the docker image in Google Cloud Platform
 2. Pushes the container image in to Google Cloud Registry
 3. Deploys the image to Google Cloud Run
+
+## The main.tf file
+
+Is a terraform file which creates a trigger on Google Cloud Build on the supplied parameters
